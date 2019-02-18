@@ -26,20 +26,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initInstance();
 
-        btnClick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                tvHello.setText("Happy Birthday");
-                model.getText().setValue("HEllo eifjdsfdks;f");
-            }
-        });
+//        btnClick.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                model.getText().setValue("HEllo eifjdsfdks;f");
+//            }
+//        });
 
 
     }
 
     private void initInstance() {
-        tvHello = (TextView) findViewById(R.id.tvHello);
-        btnClick = (Button) findViewById(R.id.btnClick);
+//        tvHello = (TextView) findViewById(R.id.tvHello);
+//        btnClick = (Button) findViewById(R.id.btnClick);
 
         model = ViewModelProviders.of(this).get(TestViewModel.class);
 
