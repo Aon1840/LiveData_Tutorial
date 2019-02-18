@@ -9,13 +9,11 @@ import com.example.livedata_tutorial.Model.User;
 
 public class EditDataViewModel extends AndroidViewModel {
 
-    private final User userLiveData;
     private AppDatabase appDatabase;
 
     public EditDataViewModel(Application application) {
         super(application);
         appDatabase = AppDatabase.getDatabase(this.getApplication());
-        userLiveData = appDatabase.userDao().getUserById(1);
     }
 
 

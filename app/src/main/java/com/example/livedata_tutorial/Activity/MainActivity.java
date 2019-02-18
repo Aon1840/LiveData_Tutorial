@@ -90,15 +90,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        User user = (User) v.getTag();
-        Log.d(TAG,"user from tag----: "+user);
-        Log.d(TAG,"user from tag----: "+user.getUid());
-        Log.d(TAG,"user from tag----: "+user.getFirstName());
-        Intent intent = new Intent(MainActivity.this, AddContentActivity.class);
-        intent.putExtra("uid",user.getUid());
-        intent.putExtra("firstName",user.getFirstName());
-        intent.putExtra("lastName",user.getLastName());
-        intent.putExtra("email",user.getEmail());
-        startActivity(intent);
+//        User user = (User) v.getTag();
+//        Log.d(TAG,"user from tag----: "+user);
+//        Log.d(TAG,"user from tag----: "+user.getUid());
+//        Log.d(TAG,"user from tag----: "+user.getFirstName());
+//        Intent intent = new Intent(MainActivity.this, AddContentActivity.class);
+//        intent.putExtra("uid",user.getUid());
+//        intent.putExtra("firstName",user.getFirstName());
+//        intent.putExtra("lastName",user.getLastName());
+//        intent.putExtra("email",user.getEmail());
+//        startActivity(intent);
     }
 }
