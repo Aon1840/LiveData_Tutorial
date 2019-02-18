@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.livedata_tutorial.Database.AppDatabase;
-import com.example.livedata_tutorial.Database.User;
+import com.example.livedata_tutorial.Model.User;
 
 public class AddDataViewModel extends AndroidViewModel {
 

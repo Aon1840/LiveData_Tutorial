@@ -1,11 +1,13 @@
-package com.example.livedata_tutorial.Database;
+package com.example.livedata_tutorial.Model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity
-public class User {
+public class User implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int uid;
     @ColumnInfo(name = "first_name")

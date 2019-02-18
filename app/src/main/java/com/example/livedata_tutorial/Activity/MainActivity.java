@@ -1,11 +1,8 @@
 package com.example.livedata_tutorial.Activity;
 
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
-import android.arch.persistence.room.Room;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -14,16 +11,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListAdapter;
-import android.widget.TextView;
 
 import com.example.livedata_tutorial.Adapter.ItemListAdapter;
-import com.example.livedata_tutorial.Database.AppDatabase;
-import com.example.livedata_tutorial.Database.User;
+import com.example.livedata_tutorial.Model.User;
 import com.example.livedata_tutorial.R;
 import com.example.livedata_tutorial.ViewModel.ListDataViewModel;
-import com.example.livedata_tutorial.ViewModel.TestViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private final String TAG = MainActivity.class.getName();
     private ListDataViewModel viewModel;
+//    private EditDataViewModel editDataViewModel;
     private ItemListAdapter listAdapter;
     private RecyclerView recyclerView;
     private FloatingActionButton fab;
@@ -58,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            }
 //        });
 
-
     }
 
     private void initInstance() {
@@ -77,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+//        editDataViewModel = ViewModelProviders.of(this).get(EditDataViewModel.class);
 
 //        tvHello = (TextView) findViewById(R.id.tvHello);
 //        btnClick = (Button) findViewById(R.id.btnClick);
@@ -93,8 +86,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        model.getText().observe(this, nameObserver);
     }
 
+
+
     @Override
     public void onClick(View v) {
-
+        User user = (User) v.getTag();
+        Log.d(TAG,"user from tag----: "+user);
+        Log.d(TAG,"user from tag----: "+user.getUid());
+        Log.d(TAG,"user from tag----: "+user.getFirstName());
+        Intent intent = new Intent(MainActivity.this, AddContentActivity.class);
+        intent.putExtra("uid",user.getUid());
+        intent.putExtra("firstName",user.getFirstName());
+        intent.putExtra("lastName",user.getLastName());
+        intent.putExtra("email",user.getEmail());
+        startActivity(intent);
     }
 }

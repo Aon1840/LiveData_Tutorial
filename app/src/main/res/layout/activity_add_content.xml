@@ -83,7 +83,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:singleLine="true"
-            android:imeOptions="actionNext"/>
+            android:imeOptions="actionDone"/>
 
         <Button
             android:id="@+id/btnAdd"

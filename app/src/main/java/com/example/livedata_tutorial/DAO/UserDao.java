@@ -1,11 +1,13 @@
-package com.example.livedata_tutorial.Database;
+package com.example.livedata_tutorial.DAO;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
-import android.widget.ListView;
+import android.arch.persistence.room.Update;
+
+import com.example.livedata_tutorial.Model.User;
 
 import java.util.List;
 
@@ -21,6 +23,9 @@ public interface UserDao {
     @Insert
     void addUser(User user);
 
-    @Query("SELECT * FROM user")
-    List<User> getAllUser();
+    @Update
+    void updateUser(User user);
+
+    @Delete
+    void deleteUser(User user);
 }

@@ -1,8 +1,6 @@
 package com.example.livedata_tutorial.Activity;
 
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.livedata_tutorial.Database.User;
+import com.example.livedata_tutorial.Model.User;
 import com.example.livedata_tutorial.R;
 import com.example.livedata_tutorial.ViewModel.AddDataViewModel;
 

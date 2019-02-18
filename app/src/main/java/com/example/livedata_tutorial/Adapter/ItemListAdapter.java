@@ -1,13 +1,16 @@
 package com.example.livedata_tutorial.Adapter;
 
-import android.support.annotation.NonNull;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.livedata_tutorial.Database.User;
+import com.example.livedata_tutorial.Activity.EditContentActivity;
+import com.example.livedata_tutorial.Model.User;
 import com.example.livedata_tutorial.R;
 
 import java.util.List;
@@ -16,6 +19,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Recycl
 
     private List<User> userList;
     private View.OnClickListener onClickListener;
+    Context context;
 
     public ItemListAdapter(List<User> userList, View.OnClickListener onClickListener) {
         this.userList = userList;
@@ -26,6 +30,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Recycl
 //    Like a inflate layout
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        context=parent.getContext();
         return new RecyclerViewHolder(LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.list_item, parent, false
         ));
@@ -33,12 +38,21 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Recycl
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        User user = userList.get(position);
+        final User user = userList.get(position);
         holder.tvFirstName.setText("Name: "+user.getFirstName());
         holder.tvLastName.setText("Surname: "+user.getLastName());
         holder.tvEmail.setText("Email: "+user.getEmail());
-//        holder.itemView.setTag(user);
-//        holder.itemView.setOnClickListener(onClickListener);
+        holder.itemView.setTag(user);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(context, EditContentActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("data",user);
+                i.putExtras(bundle);
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override

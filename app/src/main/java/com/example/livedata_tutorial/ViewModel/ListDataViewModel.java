@@ -3,12 +3,10 @@ package com.example.livedata_tutorial.ViewModel;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
-import android.os.AsyncTask;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.example.livedata_tutorial.Database.AppDatabase;
-import com.example.livedata_tutorial.Database.User;
+import com.example.livedata_tutorial.Model.User;
 
 import java.util.List;
 
