@@ -34,9 +34,11 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Recycl
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
         User user = userList.get(position);
-        holder.tvFirstName.setText(user.getFirstName());
-        holder.tvLastName.setText(user.getLastName());
-        holder.tvEmail.setText(user.getEmail());
+        holder.tvFirstName.setText("Name: "+user.getFirstName());
+        holder.tvLastName.setText("Surname: "+user.getLastName());
+        holder.tvEmail.setText("Email: "+user.getEmail());
+//        holder.itemView.setTag(user);
+//        holder.itemView.setOnClickListener(onClickListener);
     }
 
     @Override
@@ -44,7 +46,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Recycl
         return userList.size();
     }
 
-    public void addItems(List<User> user){
+    public void addItems(List<User> userList){
         this.userList = userList;
         notifyDataSetChanged();
     }

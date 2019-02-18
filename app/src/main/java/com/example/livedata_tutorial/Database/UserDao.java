@@ -20,4 +20,7 @@ public interface UserDao {
 
     @Insert
     void addUser(User user);
+
+    @Query("SELECT * FROM user")
+    List<User> getAllUser();
 }
