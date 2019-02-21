@@ -1,8 +1,10 @@
 package com.example.livedata_tutorial.Activity;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,12 +39,26 @@ public class EditContentActivity extends AppCompatActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edtFirstName.getText().toString() == null || edtLastName.getText().toString()  == null || edtEmail.getText().toString()  == null) {
-                    Toast.makeText(EditContentActivity.this,"Missing Field", Toast.LENGTH_LONG).show();
-                } else {
-                    editDataViewModel.updateUser(user);
-                    finish();
-                }
+                Log.d(TAG,"before --- user id from update: "+user.getUid()+" "+user.getFirstName());
+                user.setFirstName(edtFirstName.getText().toString());
+                user.setLastName(edtLastName.getText().toString());
+                user.setEmail(edtEmail.getText().toString());
+                editDataViewModel.updateUser(user);
+                Log.d(TAG,"after --- user id from update: "+user.getUid()+" "+user.getFirstName());
+
+                Intent intent = new Intent(EditContentActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"User user id from delete: "+user.getUid()+" "+user.getFirstName());
+                editDataViewModel.deleteUser(user);
+
+                Intent intent = new Intent(EditContentActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }

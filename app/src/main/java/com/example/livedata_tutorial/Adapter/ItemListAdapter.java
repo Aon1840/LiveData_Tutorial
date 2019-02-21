@@ -49,6 +49,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Recycl
                 Intent i=new Intent(context, EditContentActivity.class);
                 Bundle bundle=new Bundle();
                 bundle.putSerializable("data",user);
+                bundle.putInt("uid",user.getUid());
                 i.putExtras(bundle);
                 context.startActivity(i);
             }
