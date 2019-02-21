@@ -20,11 +20,10 @@ import com.example.livedata_tutorial.ViewModel.ListDataViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity{
 
     private final String TAG = MainActivity.class.getName();
     private ListDataViewModel viewModel;
-//    private EditDataViewModel editDataViewModel;
     private ItemListAdapter listAdapter;
     private RecyclerView recyclerView;
     private FloatingActionButton fab;
@@ -44,19 +43,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-//        btnClick.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                model.getText().setValue("HEllo eifjdsfdks;f");
-//            }
-//        });
 
     }
 
     private void initInstance() {
         fab = findViewById(R.id.fab);
         recyclerView = findViewById(R.id.recyclerView);
-        listAdapter = new ItemListAdapter(new ArrayList<User>(), this);
+        listAdapter = new ItemListAdapter(new ArrayList<User>());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listAdapter);
 
@@ -69,36 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-//        editDataViewModel = ViewModelProviders.of(this).get(EditDataViewModel.class);
-
-//        tvHello = (TextView) findViewById(R.id.tvHello);
-//        btnClick = (Button) findViewById(R.id.btnClick);
-
-//        model = ViewModelProviders.of(this).get(TestViewModel.class);
-//
-//        final Observer<String> nameObserver = new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                tvHello.setText(s);
-//            }
-//        };
-//
-//        model.getText().observe(this, nameObserver);
     }
 
-
-
-    @Override
-    public void onClick(View v) {
-//        User user = (User) v.getTag();
-//        Log.d(TAG,"user from tag----: "+user);
-//        Log.d(TAG,"user from tag----: "+user.getUid());
-//        Log.d(TAG,"user from tag----: "+user.getFirstName());
-//        Intent intent = new Intent(MainActivity.this, AddContentActivity.class);
-//        intent.putExtra("uid",user.getUid());
-//        intent.putExtra("firstName",user.getFirstName());
-//        intent.putExtra("lastName",user.getLastName());
-//        intent.putExtra("email",user.getEmail());
-//        startActivity(intent);
-    }
 }

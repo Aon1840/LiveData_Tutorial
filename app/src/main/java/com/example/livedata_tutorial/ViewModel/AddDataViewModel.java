@@ -39,15 +39,5 @@ public class AddDataViewModel extends AndroidViewModel {
         }
     }
 
-//    private void addAsyncTask(final User user){
-//
-//        new AsyncTask<User, Void, Void>(){
-//            @Override
-//            protected Void doInBackground(User... users) {
-//                appDatabase.userDao().addUser(users[0]);
-//                return null;
-//            }
-//        }.execute();
-//    }
 
 }

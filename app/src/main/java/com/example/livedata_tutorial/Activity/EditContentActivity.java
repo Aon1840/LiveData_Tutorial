@@ -44,6 +44,7 @@ public class EditContentActivity extends AppCompatActivity {
                 user.setLastName(edtLastName.getText().toString());
                 user.setEmail(edtEmail.getText().toString());
                 editDataViewModel.updateUser(user);
+                finish();
                 Log.d(TAG,"after --- user id from update: "+user.getUid()+" "+user.getFirstName());
 
                 Intent intent = new Intent(EditContentActivity.this, MainActivity.class);
@@ -56,6 +57,7 @@ public class EditContentActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d(TAG,"User user id from delete: "+user.getUid()+" "+user.getFirstName());
                 editDataViewModel.deleteUser(user);
+                finish();
 
                 Intent intent = new Intent(EditContentActivity.this, MainActivity.class);
                 startActivity(intent);

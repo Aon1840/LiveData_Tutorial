@@ -18,16 +18,16 @@ import java.util.List;
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.RecyclerViewHolder> {
 
     private List<User> userList;
-    private View.OnClickListener onClickListener;
+//    private View.OnClickListener onClickListener;
     Context context;
 
-    public ItemListAdapter(List<User> userList, View.OnClickListener onClickListener) {
+    public ItemListAdapter(List<User> userList) {
         this.userList = userList;
-        this.onClickListener = onClickListener;
+//        this.onClickListener = onClickListener;
     }
 
 
-//    Like a inflate layout
+//    Like a inflate layout => Create Layout and save data into ViewHolder
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context=parent.getContext();
@@ -36,6 +36,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Recycl
         ));
     }
 
+//    Manage the data into the ViewHolder
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
         final User user = userList.get(position);
@@ -56,6 +57,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Recycl
         });
     }
 
+//    Get count
     @Override
     public int getItemCount() {
         return userList.size();
@@ -65,9 +67,6 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.Recycl
         this.userList = userList;
         notifyDataSetChanged();
     }
-
-
-
 
 
 
